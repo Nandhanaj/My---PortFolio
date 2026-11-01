@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nandhana Jayaprakash | Portfolio</title>
+    
+    <!-- Google Fonts: Poppins for a modern, highly readable aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for elegant light-weight icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FDFBF7',
+                        pastel: {
+                            peach: '#FFE5D9',
+                            mint: '#D8F3DC',
+                            lavender: '#E8E8FF',
+                            pink: '#FFD6E0',
+                            yellow: '#FFF0D4',
+                        },
+                        textMain: '#2c3e50', // Darker, highly readable font color for contrast
+                        textLight: '#546e7a'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(135deg,#f3e8ff, #e9d5ff, #fdf4ff);
+            color: #2c3e50;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Scroll reveal animation classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+
+        ::selection {
+            background-color: #FFE5D9;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 z-50 bg-white/60 backdrop-blur-md border-b border-white/40 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-textMain tracking-wider">
+                        NJ<span class="text-pastel-pink">.</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 lg:space-x-8">
+                    <a href="#education" class="text-textMain hover:text-[#d39e82] transition-colors px-2 py-2 text-sm font-medium">Education</a>
+                    <a href="#skills" class="text-textMain hover:text-[#8cb892] transition-colors px-2 py-2 text-sm font-medium">Skills</a>
+                    <a href="#experience" class="text-textMain hover:text-[#a5a5d1] transition-colors px-2 py-2 text-sm font-medium">Experience</a>
+                    <a href="#projects" class="text-textMain hover:text-[#d39e82] transition-colors px-2 py-2 text-sm font-medium">Projects</a>
+                    <a href="#certifications" class="text-textMain hover:text-[#8cb892] transition-colors px-2 py-2 text-sm font-medium">Certifications</a>
+                    <a href="#contact" class="text-textMain hover:text-[#d19bb1] transition-colors px-2 py-2 text-sm font-medium">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-textMain focus:outline-none p-2">
+                        <i class="ph ph-list text-3xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream/95 backdrop-blur-lg border-b border-white/20 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 text-center">
+                <a href="#education" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-peach/50 rounded-xl transition-colors">Education</a>
+                <a href="#skills" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-mint/50 rounded-xl transition-colors">Skills</a>
+                <a href="#experience" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-lavender/50 rounded-xl transition-colors">Experience</a>
+                <a href="#projects" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-peach/50 rounded-xl transition-colors">Projects</a>
+                <a href="#certifications" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-mint/50 rounded-xl transition-colors">Certifications</a>
+                <a href="#contact" class="mobile-link block px-3 py-3 text-base font-medium text-textMain hover:bg-pastel-pink/50 rounded-xl transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="max-w-4xl mx-auto text-center z-10 flex flex-col items-center">
+            
+            <img src="profile.jpg" alt="Nandhana Jayaprakash" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-bottom: 24px;" class="reveal">
+
+            <div class="inline-block mb-4 px-5 py-2 rounded-full bg-white/60 border border-white/80 shadow-sm backdrop-blur-sm reveal delay-100">
+                <span class="text-sm font-semibold tracking-wide text-textMain">Welcome to my portfolio</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-textMain reveal delay-100">
+                Nandhana Jayaprakash
+            </h1>
+            <p class="text-lg md:text-xl text-textLight mb-10 max-w-2xl mx-auto leading-relaxed reveal delay-200 font-medium">
+                Computer Science Undergraduate & Developer
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 reveal delay-300">
+                <a href="#projects" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-textMain bg-pastel-peach hover:bg-[#ffcfb3] rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-white">
+                    View My Work
+                    <i class="ph ph-arrow-right ml-2 text-xl"></i>
+                </a>
+                <a href="resume.pdf" download="Nandhana_Resume.pdf" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-base font-medium text-textMain bg-white hover:bg-gray-50 rounded-full shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1 border border-pastel-mint">
+                    Download Resume
+                    <i class="ph ph-download-simple ml-2 text-xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-24 px-4 bg-white/40 backdrop-blur-sm">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Education</h2>
+                <div class="w-16 h-1 bg-pastel-mint mx-auto rounded-full"></div>
+            </div>
+
+            <div class="relative border-l border-pastel-mint/50 ml-4 md:ml-8 space-y-12">
+                <!-- Education Item 1 -->
+                <div class="relative pl-8 md:pl-12 reveal">
+                    <div class="absolute -left-4 top-1 w-8 h-8 bg-pastel-mint rounded-full border-4 border-cream flex items-center justify-center shadow-sm">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <span class="inline-block px-3 py-1 bg-pastel-mint/40 text-sm font-semibold rounded-full text-textMain mb-3">2023 - 2027</span>
+                        <h3 class="text-xl font-bold mb-1">B.E. Computer Science Engineering</h3>
+                        <p class="text-textLight font-medium">Karpagam Academy of Higher Education</p>
+                    </div>
+                </div>
+                
+                <!-- Education Item 2 -->
+                <div class="relative pl-8 md:pl-12 reveal delay-100">
+                    <div class="absolute -left-4 top-1 w-8 h-8 bg-pastel-peach rounded-full border-4 border-cream flex items-center justify-center shadow-sm">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <span class="inline-block px-3 py-1 bg-pastel-peach/50 text-sm font-semibold rounded-full text-textMain mb-3">2022 - 2023</span>
+                        <h3 class="text-xl font-bold mb-1">12th (HSC)</h3>
+                        <p class="text-textLight font-medium">Arokiamatha Matriculation Higher Secondary School</p>
+                    </div>
+                </div>
+
+                <!-- Education Item 3 -->
+                <div class="relative pl-8 md:pl-12 reveal delay-200">
+                    <div class="absolute -left-4 top-1 w-8 h-8 bg-pastel-lavender rounded-full border-4 border-cream flex items-center justify-center shadow-sm">
+                        <div class="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <div class="bg-white/60 backdrop-blur-sm border border-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                        <span class="inline-block px-3 py-1 bg-pastel-lavender/60 text-sm font-semibold rounded-full text-textMain mb-3">2020 - 2021</span>
+                        <h3 class="text-xl font-bold mb-1">10th (SSLC)</h3>
+                        <p class="text-textLight font-medium">Arokiamatha Matriculation Higher Secondary School</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-4 relative">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Skills & Expertise</h2>
+                <div class="w-16 h-1 bg-pastel-lavender mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Technical Skills -->
+                <div class="reveal bg-white/40 border border-white p-8 rounded-[2rem] shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph ph-desktop text-2xl text-textMain bg-pastel-lavender p-2 rounded-xl"></i>
+                        <h3 class="text-2xl font-bold">Technical Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">Java</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">C++</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">Python</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">HTML</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">CSS</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">JavaScript</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">SQL</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">MongoDB</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">IoT Fundamentals</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-lavender rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-lavender/30 transition-colors cursor-default">Cloud Computing</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="reveal delay-100 bg-white/40 border border-white p-8 rounded-[2rem] shadow-sm">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i class="ph ph-users-three text-2xl text-textMain bg-pastel-peach p-2 rounded-xl"></i>
+                        <h3 class="text-2xl font-bold">Soft Skills</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Teamwork</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Communication</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Time Optimization</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Adaptability</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Problem Solving</span>
+                        <span class="px-5 py-2.5 bg-white border border-pastel-peach rounded-full text-textMain font-medium shadow-sm hover:bg-pastel-peach/30 transition-colors cursor-default">Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-24 px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Experience</h2>
+                <div class="w-16 h-1 bg-pastel-pink mx-auto rounded-full"></div>
+            </div>
+
+            <div class="space-y-8">
+                <!-- Experience Item 1 -->
+                <div class="reveal bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pastel-peach rounded-bl-full -z-10 opacity-30 group-hover:scale-110 transition-transform"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-textMain">Virtual Intern – YardStick Digital Solutions</h3>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="inline-flex items-center px-4 py-2 bg-pastel-peach/40 text-sm font-semibold rounded-full text-textMain">
+                                <i class="ph ph-calendar-blank mr-2"></i> April 2025 – May 2025
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 mt-4 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-peach text-xl mt-0.5 shrink-0"></i>
+                            <span class="text-base font-medium">Worked on development workflows, testing, and documentation</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-peach text-xl mt-0.5 shrink-0"></i>
+                            <span class="text-base font-medium">Strengthened problem-solving and collaboration skills</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="reveal delay-100 bg-white/60 backdrop-blur-md border border-white/80 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-pastel-mint rounded-bl-full -z-10 opacity-30 group-hover:scale-110 transition-transform"></div>
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-textMain">Virtual Intern – iDigiSoft Technologies</h3>
+                        </div>
+                        <div class="mt-3 md:mt-0">
+                            <span class="inline-flex items-center px-4 py-2 bg-pastel-mint/40 text-sm font-semibold rounded-full text-textMain">
+                                <i class="ph ph-calendar-blank mr-2"></i> July 2024 – Aug 2024
+                            </span>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 mt-4 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-mint text-xl mt-0.5 shrink-0"></i>
+                            <span class="text-base font-medium">Performed coding, debugging, and module-level development</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-mint text-xl mt-0.5 shrink-0"></i>
+                            <span class="text-base font-medium">Gained exposure to SDLC and teamwork practices</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 px-4 relative">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>
+                <div class="w-16 h-1 bg-pastel-yellow mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="reveal bg-white/70 border border-white rounded-[2rem] p-8 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-pastel-mint rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="ph ph-car-profile text-textMain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Emergency Vehicle Alert System</h3>
+                    <p class="text-sm text-textLight font-medium mb-4">Traffic Management • Apr 2025 – June 2025</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-pastel-mint/30 rounded-lg text-xs font-semibold">IoT</span>
+                        <span class="px-3 py-1 bg-pastel-mint/30 rounded-lg text-xs font-semibold">Sensors</span>
+                        <span class="px-3 py-1 bg-pastel-mint/30 rounded-lg text-xs font-semibold">Automation</span>
+                    </div>
+                    
+                    <ul class="space-y-2 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-mint text-xl mt-0.5"></i>
+                            <span class="text-sm">Developed system to detect emergency vehicles and trigger alerts.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-pastel-mint text-xl mt-0.5"></i>
+                            <span class="text-sm">Improved traffic clearance efficiency using automation.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="reveal delay-100 bg-white/70 border border-white rounded-[2rem] p-8 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-pastel-lavender rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="ph ph-shopping-bag-open text-textMain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Shoplifting Detection System</h3>
+                    <p class="text-sm text-textLight font-medium mb-4">AI-Based • Feb 2024 – May 2024</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-pastel-lavender/40 rounded-lg text-xs font-semibold">Python</span>
+                        <span class="px-3 py-1 bg-pastel-lavender/40 rounded-lg text-xs font-semibold">Machine Learning</span>
+                        <span class="px-3 py-1 bg-pastel-lavender/40 rounded-lg text-xs font-semibold">Computer Vision</span>
+                    </div>
+                    
+                    <ul class="space-y-2 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#a5a5d1] text-xl mt-0.5"></i>
+                            <span class="text-sm">Developed real-time model for suspicious activity detection.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#a5a5d1] text-xl mt-0.5"></i>
+                            <span class="text-sm">Applied ML techniques for object detection and accuracy improvement.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="reveal bg-white/70 border border-white rounded-[2rem] p-8 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-pastel-pink rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="ph ph-pill text-textMain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Medication Reminder & Tracker</h3>
+                    <p class="text-sm text-textLight font-medium mb-4">August 2026</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-pastel-pink/40 rounded-lg text-xs font-semibold">Python</span>
+                        <span class="px-3 py-1 bg-pastel-pink/40 rounded-lg text-xs font-semibold">OCR</span>
+                        <span class="px-3 py-1 bg-pastel-pink/40 rounded-lg text-xs font-semibold">SQLite</span>
+                        <span class="px-3 py-1 bg-pastel-pink/40 rounded-lg text-xs font-semibold">Secure Storage</span>
+                    </div>
+                    
+                    <ul class="space-y-2 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#d19bb1] text-xl mt-0.5"></i>
+                            <span class="text-sm">Built an OCR-enabled web app to scan prescriptions and auto-generate schedules.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#d19bb1] text-xl mt-0.5"></i>
+                            <span class="text-sm">Integrated drug interaction alerts and tracked adherence via encrypted dashboard.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="reveal delay-100 bg-white/70 border border-white rounded-[2rem] p-8 shadow-sm hover:shadow-lg transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-pastel-peach rounded-2xl flex items-center justify-center mb-6 text-2xl group-hover:scale-110 transition-transform">
+                        <i class="ph ph-cooking-pot text-textMain"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">RecipeBox & Shopping List Maker</h3>
+                    <p class="text-sm text-textLight font-medium mb-4">August 2026</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-3 py-1 bg-pastel-peach/50 rounded-lg text-xs font-semibold">Node.js</span>
+                        <span class="px-3 py-1 bg-pastel-peach/50 rounded-lg text-xs font-semibold">Express</span>
+                        <span class="px-3 py-1 bg-pastel-peach/50 rounded-lg text-xs font-semibold">MySQL</span>
+                        <span class="px-3 py-1 bg-pastel-peach/50 rounded-lg text-xs font-semibold">Cloud Run</span>
+                    </div>
+                    
+                    <ul class="space-y-2 text-textMain">
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#d39e82] text-xl mt-0.5"></i>
+                            <span class="text-sm">Developed full-stack recipe manager to organize meals and scale quantities.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="ph-fill ph-check-circle text-[#d39e82] text-xl mt-0.5"></i>
+                            <span class="text-sm">Implemented auto shopping list generation, secure auth, and Cloud Run deploy.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-24 px-4">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Certifications & Professional Development</h2>
+                <div class="w-16 h-1 bg-pastel-mint mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col gap-10">
+                <!-- 2026 -->
+                <div class="reveal">
+                    <h3 class="text-2xl font-bold text-textMain mb-6 flex items-center gap-3">
+                        <span class="bg-pastel-mint/60 px-4 py-1 rounded-full text-lg shadow-sm border border-white/60">2026</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-mint mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Computer Networking – Scaler Topics</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed a course focused on computer networking concepts and fundamentals.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-mint mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Data Acquisition – FutureSkills Prime</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Earned certification in data acquisition aligned with competency standards developed by IT-ITeS Sector Skills Council NASSCOM in collaboration with industry and government.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-mint mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">CSS (Basic) – HackerRank</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Successfully passed the CSS Basic Skill Certification Test.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-mint mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">HTML (Basic) – HackerRank</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Successfully passed the HTML Basic Skill Certification Test.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-mint mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">SQL (Basic) – HackerRank</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Successfully passed the SQL Basic Skill Certification Test.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <div class="reveal delay-100">
+                    <h3 class="text-2xl font-bold text-textMain mb-6 flex items-center gap-3">
+                        <span class="bg-pastel-peach/60 px-4 py-1 rounded-full text-lg shadow-sm border border-white/60">2025</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-peach mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Artificial Intelligence Fundamentals – IBM SkillsBuild</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Gained foundational knowledge of artificial intelligence concepts and applications.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-peach mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">AWS Academy Graduate – AWS Academy</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed AWS Academy training, developing knowledge of cloud computing and AWS services.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-peach mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">IoT Fundamentals – NPTEL</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed the NPTEL course and examination with a score of 80%, covering fundamental Internet of Things concepts.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-peach mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Angular Web Developer – Infosys Springboard</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed training in Angular web development and its core concepts.</p>
+                        </div>
+                        
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-peach mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Frontend Developer – Infosys Springboard</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed frontend development training, covering essential web development technologies and practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="reveal delay-200">
+                    <h3 class="text-2xl font-bold text-textMain mb-6 flex items-center gap-3">
+                        <span class="bg-pastel-lavender/60 px-4 py-1 rounded-full text-lg shadow-sm border border-white/60">2024</span>
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-white/60 backdrop-blur-md border border-white/80 p-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col">
+                            <div class="flex items-start gap-3 mb-2">
+                                <i class="ph-fill ph-certificate text-2xl text-pastel-lavender mt-0.5 shrink-0"></i>
+                                <h4 class="text-[1.1rem] font-bold text-textMain leading-snug">Computer Architecture – NPTEL</h4>
+                            </div>
+                            <p class="text-sm text-textLight font-medium pl-9 leading-relaxed">Completed the NPTEL course and examination, achieving a score of 53%.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 px-4 relative">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <div class="w-16 h-1 bg-pastel-peach mx-auto rounded-full mb-12"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal delay-100">
+                
+                <!-- Email -->
+                <a href="mailto:jayaprakashnandhana8@gmail.com" class="flex items-center gap-5 bg-white/60 backdrop-blur-md border border-white/80 px-6 py-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-pastel-peach/60 rounded-full flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-envelope text-2xl text-[#d39e82]"></i>
+                    </div>
+                    <div class="text-left overflow-hidden">
+                        <span class="block text-xs font-bold text-textLight uppercase tracking-wider">Email</span>
+                        <span class="block text-textMain font-medium truncate">jayaprakashnandhana8@gmail.com</span>
+                    </div>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/nandhana-jayaprakash-4ab239291" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 bg-white/60 backdrop-blur-md border border-white/80 px-6 py-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-pastel-lavender/70 rounded-full flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-linkedin-logo text-2xl text-[#8d8dbd]"></i>
+                    </div>
+                    <div class="text-left overflow-hidden">
+                        <span class="block text-xs font-bold text-textLight uppercase tracking-wider">LinkedIn</span>
+                        <span class="block text-textMain font-medium truncate">www.linkedin.com/in/nandhana-jayaprakash-4ab239291
+</span>
+                    </div>
+                </a>
+
+                <!-- GitHub -->
+                <a href="https://github.com/Nandhanaj/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-5 bg-white/60 backdrop-blur-md border border-white/80 px-6 py-6 rounded-2xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
+                    <div class="w-12 h-12 bg-pastel-pink/60 rounded-full flex items-center justify-center shrink-0">
+                        <i class="ph-fill ph-github-logo text-2xl text-[#c48ba1]"></i>
+                    </div>
+                    <div class="text-left overflow-hidden">
+                        <span class="block text-xs font-bold text-textLight uppercase tracking-wider">GitHub</span>
+                        <span class="block text-textMain font-medium truncate">github.com/Nandhanaj</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-black/5 text-center bg-white/30 backdrop-blur-sm">
+        <p class="text-textLight text-sm font-medium">
+           Built by ~ Nandhana Jayaprakash  <span id="year"></span> &copy;
+        </p>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.replace('bg-cream/70', 'bg-white/85');
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.classList.replace('bg-white/85', 'bg-cream/70');
+            }
+        });
+
+        // Scroll Reveal Animation via Intersection Observer
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+    </script>
+</body>
+</html>
